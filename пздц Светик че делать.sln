@@ -1,25 +1,63 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "пздц Светик че делать", "пздц Светик че делать\пздц Светик че делать.csproj", "{B564DC3D-5181-421D-B211-EC383E0F4BD4}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B564DC3D-5181-421D-B211-EC383E0F4BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B564DC3D-5181-421D-B211-EC383E0F4BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B564DC3D-5181-421D-B211-EC383E0F4BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B564DC3D-5181-421D-B211-EC383E0F4BD4}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6F79FFCE-35AA-4C55-BE4C-CD0BC38592E6}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace пздц_Светик_че_делать
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Выводим меню с операциями
+            Console.WriteLine("Выберите операцию:");
+            Console.WriteLine("1. Сложение");
+            Console.WriteLine("2. Вычитание");
+            Console.WriteLine("3. Умножение");
+            Console.WriteLine("4. Деление");
+
+            // Получаем ввод пользователя
+            int operation = int.Parse(Console.ReadLine());
+
+            // Вводим два числа
+            Console.Write("Введите первое число: ");
+            double num1 = double.Parse(Console.ReadLine());
+
+            Console.Write("Введите второе число: ");
+            double num2 = double.Parse(Console.ReadLine());
+
+            // Выполняем выбранную операцию
+            double result = 0d;
+            switch (operation)
+            {
+                case 1:
+                    result = num1 + num2;
+                    break;
+                case 2:
+                    result = num1 - num2;
+                    break;
+                case 3:
+                    result = num1 * num2;
+                    break;
+                case 4:
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Деление на ноль невозможно");
+                        break;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    Console.WriteLine("Неверный ввод");
+                    break;
+            }
+
+            // Выводим результат
+            Console.WriteLine($"Результат: {result}");
+
+            Console.ReadKey();
+        }
+    }
+}
